@@ -402,7 +402,7 @@ class SiyuanAssistantCollection extends ccPlugin {
     let topBarButton = this.addTopBar(
       {
         icon: 'iconSparkles',
-        title: '打开对话框,右键打开设置',
+        title: '打开对话框,右键打开设置，中键打开向量搜索',
         position: 'right',
       }
     )

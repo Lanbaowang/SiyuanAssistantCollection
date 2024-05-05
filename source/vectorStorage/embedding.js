@@ -95,6 +95,7 @@ export async function 重建全部索引(数据输入) {
     let { 块数据数组, 配置 } = 数据输入
     const data = []
     for await (let block of 块数据数组) {
+		console.warn('重建全部索引: block: ', block, '配置: ', 配置)
         data.push(await 矢量化块(block, 配置.最大句子长度 || 496))
     }
     return data

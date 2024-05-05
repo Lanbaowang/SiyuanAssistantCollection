@@ -37,8 +37,8 @@ class 数据集 {
         //数据集对象用于存储实际数据
         this.静态化 = 静态化 ? true : false
         this.主键名 = 主键名
-        this.文件路径键名 = 文件路径键名 || ''
-        this.数据集名称 = 数据集名称
+        this.文件路径键名 = 文件路径键名 || ''  //Siyuan box id: 20231128211108-ldrqcex
+        this.数据集名称 = 数据集名称            //e.g., 'blockVectors/leolee9086/text2vec-base-chinese'
         this.logLevel = logLevel
         this.数据库 = 数据库
         //数据集对象临时存储了所有数据
@@ -65,6 +65,7 @@ class 数据集 {
         await this.保存数据()
     }
     get 文件保存地址() {
+		//e.g., '/data/public/vectorStorage' + 'blockVectors/leolee9086/text2vec-base-chinese'
         return this.数据库.文件保存地址 + '/' + this.数据集名称 + '/'
     }
     get 主键列表() {

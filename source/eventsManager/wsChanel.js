@@ -7,7 +7,8 @@ const socket1 = new WebSocket(`${protocol}//${window.location.host}/ws/broadcast
 logger.wslog(socket)
 addAutoReconnect(socket)
 function sendMessage(message) {
-  socket.send(message);
+  if (socket.readyState === WebSocket.OPEN)
+    socket.send(message);
 }
 
 // 接收消息

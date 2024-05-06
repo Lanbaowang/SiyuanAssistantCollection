@@ -8,6 +8,7 @@
 - 增加月之暗面Kimi大模型
 
 注：目前嵌入模型默认为手动索引模式，如需要打开自动索引，请鼠标右键顶栏-->向量工具设置---手动索引，关闭手动索引。此设置后，所有笔记将在后台全部自动向量化，将消耗大量CPU资源。
+微信：lanbaowang88，欢迎随时探讨。
 
 以下是https://github.com/leolee9086/SiyuanAssistantCollection 的readme说明
 
@@ -49,23 +50,3 @@
 
 另外如果觉得这玩意有用可以请我们喝杯咖啡,下面应有二维码但是他们裂了,等我弄下图床,嗯,这是爱发电的讨饭链接:https://afdian.net/a/leolee9086
 
-
-如果它对你有用可以请我们喝一杯咖啡
-
-![](https://ccds-1300128285.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E6%94%B6%E6%AC%BE%E7%A0%811.jpg)
-
-![](https://ccds-1300128285.cos.ap-guangzhou.myqcloud.com/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE%E7%A0%811.jpg)
-
-## 捐助名单
-
-感谢以下朋友的捐助
-
-[https://github.com/Lantern51816](https://github.com/Lantern51816)
-
-[今年精力花费在尝试解决财务自由上](https://2596981615@qq.com)
-
-Thanks to the following GitHub users for their donations
-
-[https://github.com/Lantern51816](https://github.com/Lantern51816)
-
-[今年精力花费在尝试解决财务自由上](https://2596981615@qq.com)

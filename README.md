@@ -8,6 +8,7 @@
 - 增加月之暗面Kimi大模型
 
 注：目前嵌入模型默认为手动索引模式，如需要打开自动索引，请鼠标右键顶栏-->向量工具设置---手动索引，关闭手动索引。此设置后，所有笔记将在后台全部自动向量化，将消耗大量CPU资源。
+
 微信：lanbaowang88，欢迎随时探讨。
 
 以下是https://github.com/leolee9086/SiyuanAssistantCollection 的readme说明

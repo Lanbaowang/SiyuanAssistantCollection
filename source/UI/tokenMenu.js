@@ -184,6 +184,7 @@ text-overflow: ellipsis;
   return 菜单项元素
 }
 const 执行动作 = async (动作, 执行上下文, 触发事件类型) => {
+  console.log("执行上下文: ", 执行上下文)
   if (触发事件类型 == '分词菜单') {
     if (动作.hintAction) {
       await 动作.hintAction(执行上下文);
@@ -249,7 +250,7 @@ export const 开始渲染 = () => {
       controller = new AbortController();
       signal = controller.signal
       let tokenMenuDialogs = plugin.statusMonitor.get('菜单', '关键词菜单', '菜单实例').$value
-      if (!tokenMenuDialogs[0]) {
+      if (!tokenMenuDialogs || !tokenMenuDialogs[0]) {
         return
       }
       let tokenMenuDialog = tokenMenuDialogs[0]
@@ -301,7 +302,7 @@ export const 开始渲染 = () => {
   // 监听 compositionend 事件
   document.addEventListener('compositionend', (e) => {
     let tokenMenuDialogs = plugin.statusMonitor.get('菜单', '关键词菜单', '菜单实例').$value
-    if (!tokenMenuDialogs[0]) {
+    if (!tokenMenuDialogs || !tokenMenuDialogs[0]) {
       return
     }
     let tokenMenuDialog = tokenMenuDialogs[0]

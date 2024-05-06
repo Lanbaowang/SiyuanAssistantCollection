@@ -1,11 +1,12 @@
+/*
 import { plugin } from "../runtime.js"
 //这个可以用来修改设置界面的提醒
 plugin.statusMonitor.set('settingDescribe','动作设置.关键词动作设置.blockStyleYellow_js','用来设置块的背景色和文字颜色,颜色来自中国传统配色')
 
-/**
- * 中文颜色对照表
- * 就非常简单粗暴
- */
+
+// * 中文颜色对照表
+// * 就非常简单粗暴
+// *
 let 颜色对照表 =[
     
 ]
@@ -81,3 +82,4 @@ let dict = ''
 )
 export default actions
 export { dict as dict }
+*/

@@ -1,43 +1,68 @@
-## Note
 
-This plugin is still in the early stages of development, please be sure to pay attention to data safety when using it.
-Features
+本项目源自https://github.com/leolee9086/SiyuanAssistantCollection 的20240430的master分支，注意聚焦于思源笔记嵌入模型与大模型研究与开发。
 
-This is a utility function and AI assistant collection plugin (SiyuanAssistantCollection), not meaning Stand Alone Complex.
+目前主要解决原项目以下问题：
 
-It mainly includes some practical small functions, as well as some AI assistant interface docking.
+- 增加向量搜索提示：在顶栏topbar用鼠标中键点击可打开向量搜索
+- 注释掉blockStyleYellow.js，因不明原因导致：插件--执行动作--meta.js--标记为待索引 不可见
+- 增加月之暗面Kimi大模型
 
-**Some features may consume a large amount of tokens, make sure you know what you're doing before enabling them**
+注：目前嵌入模型默认为手动索引模式，如需要打开自动索引，请鼠标右键顶栏-->向量工具设置---手动索引，关闭手动索引。此设置后，所有笔记将在后台全部自动向量化，将消耗大量CPU资源。
+
+以下是https://github.com/leolee9086/SiyuanAssistantCollection 的readme说明
+
+------
+
+## 注意
+
+本插件尚在早期开发阶段，使用时注意务必注意数据安全
+
+**一些功能可能消耗大量token,开启务必保证知道你自己在做什么**
+
+## 功能
+
+这是一个实用功能和AI助手集合插件（SiyuanAssistantCollection），不是Stand Alone Complex的意思。
+
+主要是一些实用小工功能，还有一些AI助手的界面对接。
+
+## 使用帮助:
+
+帮助文档目前托管于http://www.ccsjhn.com/block/20231028183445-7ww7twf
+
+## 协议
+
+使用的外部依赖请参考他们各自的协议,暂时没有时间列出.
+除此之外使用AGPL-3.0-or-later,有关协议内容参考官网和本文件夹下的license文件.
 
 
-## User Guide:
+## 感谢
 
-Click on the "Open Help" on the SAC panel on the interface to open the user guide. Please also refer to the user guide for other content related to the plugin.
-License
+向量嵌入部分使用了transformers.js库
 
-Please refer to their respective licenses for the external dependencies used. There is currently no time to list them. In addition to this, AGPL-3.0-or-later is used, for the content of the license, please refer to the official website and the license file in this folder.
+向量嵌入部分使用了shibing624的text2vec-base-chinese模型
 
-## Thanks
+分词依赖jieba与pinyin
 
-The vector embedding part uses the transformers.js library.
+## 其他
 
-The vector embedding part uses shibing624's text2vec-base-chinese model.
+有关椽承设计:我们其实是做装修设计的(额,建筑规划景观园林其实也做),不信可以看我们的小红书和知乎,要是有人要做室内设计可以联系我们啊~~~
 
-Word segmentation depends on jieba and pinyin.
+另外如果觉得这玩意有用可以请我们喝杯咖啡,下面应有二维码但是他们裂了,等我弄下图床,嗯,这是爱发电的讨饭链接:https://afdian.net/a/leolee9086
 
-## Others
 
-About the beam-bearing design: We actually do interior design (well, we also do architectural planning, landscape, and gardening), you can check our Xiaohongshu and Zhihu if you don't believe it. If anyone wants to do interior design, you can contact us~~~
-
-Also, if you find this useful, you can buy us a cup of coffee, there should be a QR code below but they are broken, wait for me to fix the image hosting, um, this is the begging link of Aifadian: https://afdian.net/a/leolee9086
-
-If it's useful to you, you can buy us a cup of coffee.
+如果它对你有用可以请我们喝一杯咖啡
 
 ![](https://ccds-1300128285.cos.ap-guangzhou.myqcloud.com/%E5%BE%AE%E4%BF%A1%E6%94%B6%E6%AC%BE%E7%A0%811.jpg)
 
 ![](https://ccds-1300128285.cos.ap-guangzhou.myqcloud.com/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE%E7%A0%811.jpg)
 
-## Donor List
+## 捐助名单
+
+感谢以下朋友的捐助
+
+[https://github.com/Lantern51816](https://github.com/Lantern51816)
+
+[今年精力花费在尝试解决财务自由上](https://2596981615@qq.com)
 
 Thanks to the following GitHub users for their donations
 

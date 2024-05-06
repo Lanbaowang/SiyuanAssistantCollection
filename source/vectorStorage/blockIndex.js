@@ -150,7 +150,7 @@ export const 获取全块数组 = async () => {
     let hash值表 = hash表.map(item => { return `'${item.hash}'` })
     let 全块数组获取语句 = hash过滤全块数组语句(hash值表)
     logger.blockIndexlog(plugin.块数据集, hash值表)
-	  logger.blockIndexlog('sql: ' + 全块数组获取语句)
+	logger.blockIndexlog('sql: ' + 全块数组获取语句)
     let 全块数组 = kernelApi.sql.sync({ stmt: 全块数组获取语句 })
     logger.blockIndexlog('待处理块数量:' + 全块数组.length)
     return 全块数组

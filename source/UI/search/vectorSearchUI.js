@@ -81,8 +81,9 @@ export let tips = string2DOM(`  <div class="search__tip">
 </div>`)
 
 searchHeader.addEventListener('query-change',async(e)=>{
+    console.log("Query textContent:", e.detail.value)
     let data =await 以文本查找最相近文档(e.detail.value, 10, '', false, null, )
-    console.log(data)
+    console.log("Matched vectors:\n", data)
     if(data[0]){
         emitEvent(searchResult,'resultID-setted',{id:data[0].id})
         emitEvent(searchResult,'result-added',{data:data})

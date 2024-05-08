@@ -86,11 +86,11 @@ eventBus.on('click-editorcontent', () => {
 })
 eventBus.on('settingChange', async (e) => {
     let { detail } = e
-    if (detail.name === "向量工具设置.同步时忽略向量存储文件夹") {
+    if (detail.name === "向量工具设置.同步时忽略向量模型文件夹") {
         await setSync('public/onnxModels/**', detail.value)
         window.location.reload()
     }
-    if (detail.name === "向量工具设置.同步时忽略向量模型文件夹") {
+    if (detail.name === "向量工具设置.同步时忽略向量存储文件夹") {
         await setSync('public/vectorStorage/**', detail.value)
         window.location.reload()
     }

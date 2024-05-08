@@ -1,4 +1,4 @@
-export function 将文本拆分为句子(文字内容, 最大句子长度) {
+export function textToSentences(文字内容, 最大句子长度) {
     const 句子分隔符 = /[。！？；;]/g;
     const 短句分隔符 = /[，、]/g;
     const 段落组 = 文字内容.split('\n');

@@ -4,7 +4,7 @@ export function 将向量单位化(输入向量) {
     let 单位化向量 = 输入向量.map(value => value / 长度);
     return 单位化向量
 }
-export function 计算加权平均向量(向量组, 权重组, 是否单位化结果) {
+export function getWeightedMeanVectors(向量组, 权重组, 是否单位化结果) {
     let 总向量 = []
     for (let i = 0; i < 向量组[0].length; i++) {
         let sum = 0;

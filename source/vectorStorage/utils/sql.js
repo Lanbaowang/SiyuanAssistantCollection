@@ -18,7 +18,7 @@ export const hash过滤全块数组语句 = (hash值表)=>{
     }
     let 结果语句 = `
 select *  from blocks 
-    where length>4 
+    where length > 4
     ${hash语句} 
     #and type !='l'
     and type != 'i' 

@@ -9,21 +9,24 @@ transformers.env.backends.onnx.wasm.wasmPaths = '/plugins/SiyuanAssistantCollect
 transformers.env.allowRemoteModels = true;
 transformers.env.localModelPath = '/public/onnxModels/';
 let feature_extractor
-let 工具配置 = {
+let embeddingModel
+let embeddingModel_config = {
 }
 
 async function 配置处理器(配置) {
-    工具配置 = 配置;
+    embeddingModel_config = 配置;
     if (配置.siyuan&&配置.siyuan.config) {
         globalThis.siyuan.config = 配置.siyuan.config
     }
     if (feature_extractor) {
         feature_extractor.dispose? feature_extractor.dispose():null;
     }
-    let 默认文本向量化模型 = 工具配置.默认文本向量化模型.$value || 工具配置.默认文本向量化模型;
+    //The same as: plugin.configurer.get('向量工具设置', '默认文本向量化模型').$value
+    embeddingModel = embeddingModel_config.默认文本向量化模型.$value || embeddingModel_config.默认文本向量化模型;
     try {
-        if(默认文本向量化模型 !=="openAI"){
-            feature_extractor = await transformers.pipeline('feature-extraction', 默认文本向量化模型, 工具配置.默认文本向量化配置);
+        if(embeddingModel !=="openAI"){//leolee9086/text2vec-base-chinese
+            //feature_extractor = await transformers.pipeline('feature-extraction', embeddingModel, 工具配置.默认文本向量化配置);
+            feature_extractor = await transformers.pipeline('feature-extraction', embeddingModel, embeddingModel_config);
         }else{
             feature_extractor = 使用openAI生成嵌入
         }
@@ -55,6 +58,17 @@ export async function 提取向量(text, 最大句子长度) {
     if (!feature_extractor) {
         return { msg: '错误', detail: 'feature_extractor没有初始化' };
     }
+
+    if(embeddingModel !=="openAI"){//leolee9086/text2vec-base-chinese
+        try {
+            let output = await feature_extractor(text, { pooling: 'mean', normalize: true });
+            return Array.from(output.data);
+        } catch (e) {
+            console.error(e);
+            return { msg: '错误', detail: e.message };
+        }
+    }
+
     let 句子组 = textToSentences(text, 最大句子长度);
     let 句子长度比例组 = 句子组.map(句子 => 句子.length / text.length);
     try {
@@ -76,7 +90,7 @@ export async function 提取向量(text, 最大句子长度) {
         return { msg: '错误', detail: e.message };
     }
 }
-export async function convertBlocksToVectors(block, 最大句子长度) {
+export async function convertBlockToVectors(block, 最大句子长度) {
     let { id, content } = block;
     let vector;
 
@@ -87,7 +101,7 @@ export async function convertBlocksToVectors(block, 最大句子长度) {
     } catch (e) {
         console.warn('嵌入出错,自动尝试更小长度', id, content, content.length, e);
         if (最大句子长度 > 129) {
-            return await convertBlocksToVectors(block, 最大句子长度 / 2);
+            return await convertBlockToVectors(block, 最大句子长度 / 2);
         }
     }
 }
@@ -96,7 +110,7 @@ export async function 重建全部索引(数据输入) {
     const data = []
     for await (let block of 块数据数组) {
         console.warn('重建全部索引: block: ', block, '配置: ', 配置)
-        data.push(await convertBlocksToVectors(block, 配置.最大句子长度 || 496))
+        data.push(await convertBlockToVectors(block, 配置.最大句子长度 || 496))
     }
     return data
 }

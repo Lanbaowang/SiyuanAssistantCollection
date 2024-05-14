@@ -55,6 +55,33 @@ export const 计算欧氏距离相似度=(vector1, vector2)=>{
     }
     return Math.sqrt(sum);
 }
+
+/*
+// CosineSimilarity = (A*B)/(|A|*|B|)
+export const calculateCosineSimilarity = (vector1, vector2) => {
+    let dotProduct = 0;
+    let magnitude1 = 0;
+    let magnitude2 = 0;
+    for (let i = 0; i < vector1.length; i++) {
+        const val1 = vector1[i] || 0;
+        const val2 = vector2[i] || 0;
+        dotProduct += val1 * val2;
+        magnitude1 += val1 * val1;
+        magnitude2 += val2 * val2;
+    }
+    magnitude1 = Math.sqrt(magnitude1);
+    magnitude2 = Math.sqrt(magnitude2);
+    if (magnitude1 === 0 || magnitude2 === 0) {
+        return 0; // To avoid division by zero
+    }
+    return dotProduct / (magnitude1 * magnitude2);
+}
+*/
+
+/*
+*标准化向量：当两个向量已经预先被标准化（即每个向量都除以其模长，转换成单位向量），此时它们的点积直接等于余弦相似度。标准化向量的长度为1，所以点积除以模长的操作已经完成
+*计算两个向量的点积可以间接提供它们余弦相似度的信息，而不需要直接计算余弦相似度。
+*/
 export const 计算余弦相似度=(vector1, vector2)=>{
     //假设这些向量已经全部正规化了
     let dotProduct = 0;

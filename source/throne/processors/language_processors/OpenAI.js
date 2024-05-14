@@ -2,8 +2,8 @@ import OpenAichatApi from './LLMAPIS/openAIChat.js'
 import { MAGI } from './MAGI.js'
 import { plugin } from '../../../asyncModules.js'
 let options =JSON.parse(JSON.stringify(plugin.configurer.get('模型设置','OPENAI').$value))
-options.apiModel= options.apiModel&&(options.apiModel.$value||options.apiModel)
-options.temperature= options.temperature&&(options.temperature.$value)
+options.apiModel = options.apiModel ? options.apiModel.$value : "gpt-3.5-turbo";
+options.temperature = options.temperature ? options.temperature.$value : "0.7";
 
 export class LanguageProcessor {
     constructor(persona) {

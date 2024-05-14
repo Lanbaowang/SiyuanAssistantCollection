@@ -148,7 +148,7 @@ export class MAGI extends EventEmitter {
              * 所以为了避免花费过大,这里进行了简化
              */
             logger.MAGIlog(userInput)
-            if (this.config.simple) {
+            if (this.config.chatMode === 'simple') {
                 let f = (t) => {
                     console.log(t)
                     this.emit('aiTextData', t.detail)

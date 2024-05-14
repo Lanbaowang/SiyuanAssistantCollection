@@ -29,7 +29,10 @@ export class MAGI extends EventEmitter {
         this.config = config
         if (this.config.chatMode === 'simple') {
             this.echo.reply = async (...args) => {
-                let data = [{ name: `replyFrom${this.currentWise}`, action: (await this.Balthazar.reply(...args)).choices[0].message.content }]
+                let completion = await this.Balthazar.reply(...args);
+                let content = completion.choices ? completion.choices[0].message.content : JSON.stringify(completion);//`${completion.error.message} ${completion.error.type}`;
+                //let data = [{ name: `replyFrom${this.currentWise}`, action: (await this.Balthazar.reply(...args)).choices[0].message.content }]
+                let data = [{ name: `replyFrom${this.currentWise}`, action: content}]
 
                 return data
             }

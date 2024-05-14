@@ -65,9 +65,14 @@ export  class openAiChat extends EventEmitter{
             }),
             redirect: 'follow'
         };
-        const response = await fetch(`${this.options.apiBaseURL}/chat/completions`, requestOptions);
+        const targetURL = `${this.options.apiBaseURL}/chat/completions`;
+        const response = await fetch(targetURL, requestOptions);
+        //const response = await fetch(`${this.options.apiBaseURL}/chat/completions`, requestOptions);
         //const response = await fetch(`http://127.0.0.1:8000/chat/completions`, requestOptions);
         const data = await response.json();
+        if (!response.ok) {
+            data.status_code = response.status;
+        }
         return data;
     }
 }

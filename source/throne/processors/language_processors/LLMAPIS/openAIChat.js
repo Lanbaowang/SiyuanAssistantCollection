@@ -69,11 +69,18 @@ export  class openAiChat extends EventEmitter{
         const response = await fetch(targetURL, requestOptions);
         //const response = await fetch(`${this.options.apiBaseURL}/chat/completions`, requestOptions);
         //const response = await fetch(`http://127.0.0.1:8000/chat/completions`, requestOptions);
-        const data = await response.json();
+        const completion = await response.json();
         if (!response.ok) {
-            data.status_code = response.status;
+            completion.status_code = response.status;
+            completion.choices = completion.choices || [{}];
+            completion.choices[0].message = completion.choices[0].message || {};
+            // Build error message
+            let errorMessage = completion.error ? completion.error.message + "\nError type: " + completion.error.type: "Unknown error";
+            errorMessage = `Error ${response.status}: ${errorMessage}`;
+            // Set error message to content(chat window)
+            completion.choices[0].message.content = errorMessage;
         }
-        return data;
+        return completion;
     }
 }
 export default openAiChat

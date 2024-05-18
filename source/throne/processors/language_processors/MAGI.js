@@ -27,6 +27,7 @@ export class MAGI extends EventEmitter {
         this.currentWise = 'Balthazar';
         this.lastVoteResult = 'Balthazar';
         this.config = config
+        console.log("Current chatMode", this.config.chatMode);
         if (this.config.chatMode === 'simple') {
             this.echo.reply = async (...args) => {
                 let completion = await this.Balthazar.reply(...args);
